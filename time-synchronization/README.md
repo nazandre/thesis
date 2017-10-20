@@ -13,7 +13,7 @@ Naz, A., Piranda, B., Goldstein, S. C., & Bourgeois, J. (2016, February). A time
 
 All the algorithm source codes are available the [applicationsSrc/timeSync](applicationsSrc/timeSync) folder.
 
-Note that protocols to which we compare do not directly fit our target systems. We STRONGLY modified some of them but keep the same names. Please keep in mind that we implement MODIFIED VERSIONS OF THE COMPARED PROTOCOLS. 
+Note that protocols to which we compare do not directly fit our target system model. We **STRONGLY** modified some of them but keep the same names. So, please keep in mind that we implemented **STRONGLY MODIFIED VERSIONS OF THE COMPARED PROTOCOLS**. 
 
 Also notice that some protocols are implemented in the file of other protocols using macro to modify some parts of the code.
 
@@ -55,16 +55,15 @@ Note than the protocols accomplish time synchronization but nothing else, so sim
 ./timeSync -R -k BB -a 12 -c confs/l2d-2/10.xml -P 4 -Z 1 -B 2000000 -S 5000000 -N -L 5
 
 ## ATS (no time master):
-/centrality -R -k BB -a 12 -c evaluation/confs/confs/bb/r/100/106.xml -A 10 -V 1
 ./timeSync -R -k BB -a 12 -c confs/l2d-2/10.xml -P 6 -Z 1 -B 2000000 -S 5000000 -N
 ```
 
 Parameter possible values:
-* Simulation seed: any number, "-1" for a randomly generated seed
+* Simulation seed: any number, "-1" for a randomly generated seed.
 * Protocol id:
   * MRTP = 1
   * TPSN = 2
-  * TPSN_MLE = 3
+  * MLE_TPSN = 3
   * FTSP = 4
   * AD = 5
   * ATS = 6
@@ -83,7 +82,7 @@ Parameter possible values:
 cd applicationsBin/timeSync/
 ./evaluation.sh
 ```
-3. Extract collected data and plot graphs. Plots are generated in the 'evaluation/graphs' folder.
+3. Extract collected data and plot graphs. Plots are generated in the `evaluation/graphs` folder.
 ```
 cd evaluation
 ./evaluation.sh
@@ -91,7 +90,7 @@ cd evaluation
 
 ## How to compile VisibleSim and its applications?
 
-Applications are implicitely compiled when VisibleSim is compiled.
+Applications are implicitly compiled when VisibleSim is compiled.
 
 ### Dependencies:
  - Boost C++ Libraries >= 1.47.0 (If using Meld Process only)
