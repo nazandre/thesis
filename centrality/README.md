@@ -28,7 +28,7 @@ The names of algorithms used in the thesis manuscript do not all match the names
 
 ## How to have a look to the source code of our algorithms and the ones used for comparisons?
 
-All the algorithm source codes are available the [applicationsSrc/centrality](applicationsSrc/centrality) folder. Here are links to the different main code of the algorithms:
+All the algorithm source codes are available the [applicationsSrc/centrality](applicationsSrc/centrality) folder. Here are direct links to the main code of the different algorithms:
 
 * [ABC-CenterV1](applicationsSrc/centrality/abcCenterV1/abcCenterV1.cpp)
 * [ABC-CenterV2](applicationsSrc/centrality/abcCenterV2/abcCenterV2.cpp)

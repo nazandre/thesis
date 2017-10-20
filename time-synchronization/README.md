@@ -17,7 +17,7 @@ Note that protocols to which we compare do not directly fit our target system mo
 
 Also notice that some protocols are implemented in the file of other protocols using macro to modify some parts of the code.
 
-Here are links to the different main code of the protocols:
+Here are direct links to the main code of the different protocols:
 
 * [MRTP](applicationsSrc/timeSync/mrtp/mrtp.cpp)
 * [FTSP](applicationsSrc/timeSync/ftsp/ftsp.cpp)
