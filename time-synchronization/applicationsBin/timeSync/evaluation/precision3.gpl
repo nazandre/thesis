@@ -1,0 +1,91 @@
+set terminal pdf font "0,10" size 12cm,10cm
+set output "precision3.pdf"
+
+set termoption dash
+set for [i=1:7] linetype i dt i
+
+set linetype 3 dt 9
+
+set grid xtics ytics
+
+#rotate by 45 right
+
+#set xtics left # offset -2,0
+
+#set bmargin 4
+#set rmargin 6
+#set xlabel "Diameter"
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 3 lc rgb "#8B4513" ps 1 lw 1 pt 3  # brown
+#set style line 4 lt 4 lc rgb "#9ACD32" lw 1 pt 4
+set style line 4 lt 4 lc rgb "dark-green" lw 1 pt 4
+set style line 5 lt 5 lc rgb "orange" lw 1 pt 5
+set style line 6 lt 6 lc rgb "purple" lw 1 pt 6
+set style line 7 lt 7 lc rgb "cyan" lw 1 pt 8
+
+dir = "error-"
+
+set key inside top left noenhanced font "0,9"
+
+set macros
+PLOT_AVG = "plot dir.'summary.mrtp-e2ace' using 1:2:5 with yerrorlines linestyle 1 title 'MRTP-PC2LE-PRED',\
+     dir.'summary.mrtp-diameter' using 1:2:5 with yerrorlines linestyle 2 title 'MRTP-MIN\_ID-PRED',\
+     dir.'summary.tpsn-diameter-mle' using 1:2:5 with yerrorlines linestyle 3 title 'MLE\_TPSN-MIN\_ID',\
+     dir.'summary.wmts' using 1:2:5 with yerrorlines linestyle 4 title 'WMTS-PRED',\
+     dir.'summary.ats' using 1:2:5 with yerrorlines linestyle 5 title 'ATS-PRED',\
+     dir.'summary.PulseSync' using 1:2:5 with yerrorlines linestyle 7 title 'PulseSync-PRED'
+
+PLOT_MAX = "plot dir.'summary.mrtp-e2ace' using 1:4 with linespoint linestyle 1 title 'MRTP-PC2LE-PRED',\
+     dir.'summary.mrtp-diameter' using 1:4 with linespoint linestyle 2 title 'MRTP-MIN\_ID-PRED',\
+     dir.'summary.tpsn-diameter-mle' using 1:4 with linespoint linestyle 3 title 'MLE\_TPSN-MIN\_ID',\
+     dir.'summary.wmts' using 1:4 with linespoint linestyle 4 title 'WMTS-PRED',\
+     dir.'summary.ats' using 1:4 with linespoint linestyle 5 title 'ATS-PRED',\
+     dir.'summary.PulseSync' using 1:4 with linespoint linestyle 7 title 'PulseSync-PRED'
+
+
+#set xtics ("Ball(5)" 10, "Ball(15)" 30, "Ball(27)" 54)
+set xlabel "Diameter (hop)"
+
+#set tmargin 5
+set multiplot layout 2,2
+
+set title " "
+set yrange [5:10**3]
+set format y "10^{%.0T}"
+set ytics add ("5" 5)
+set logscale y
+set mytics 10
+set ylabel "Average maximum pairwise\nsynchronization error (ms)"
+@PLOT_AVG
+
+set title "Zoomed version"
+unset logscale y
+unset format y
+set mytics 5
+set yrange [5:25]
+set nokey
+@PLOT_AVG
+
+
+set arrow 1 from screen 0.1,screen 0.49 to screen 0.9, screen 0.49 nohead lc rgb 'black' lw 1.5
+
+set title " "
+set ylabel "Maximum pairwise\nsynchronization error (ms)"
+set format y "10^{%.0T}"
+set logscale y
+set mytics 10
+unset yrange
+@PLOT_MAX
+
+unset arrow 1
+
+set title "Zoomed version"
+unset logscale y
+unset format y
+set mytics 5
+set yrange [10:40]
+@PLOT_MAX
+
+unset multiplot

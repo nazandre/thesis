@@ -1,0 +1,11 @@
+set terminal pdf
+set output "graphs/rtt-time.pdf"
+
+set termoption dash
+
+set xlabel "measure \#"
+set ylabel "round-trip time (us)"
+
+dir = "hardware/data-dissemination-error"
+
+plot dir.'/2.dat' using ($4-$2) with linespoints

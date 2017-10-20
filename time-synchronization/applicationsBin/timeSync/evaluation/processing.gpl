@@ -1,0 +1,30 @@
+set terminal pdf 
+#font "Times,18" size 10cm,6cm
+set output "graphs/processing.pdf"
+
+set termoption dash
+set for [i=1:2] linetype i dt i
+
+#set xtics 1
+#set mytics 2
+#set ytics 20
+set grid xtics ytics
+
+
+set ylabel "Probability"
+set xlabel "Time (ms)"
+
+set format y "%.0f%%"
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+
+#set style line 3 lt 3 lc rgb "yellow" lw 2
+set style line 3 lt 3 lc rgb "dark-green" lw 2
+set style line 4 lt 4 lc rgb "orange" lw 2
+set style line 5 lt 5 lc rgb "purple" lw 2
+
+#'hardware/one-way.dat'
+plot 'processing/distribution.dat' using 1:2 with linespoints linestyle 2 title "Simulator"
+
+#'hardware/rtt/distribution-21.dat' using 1:2 with linespoints linestyle 1 title "Hardware",\

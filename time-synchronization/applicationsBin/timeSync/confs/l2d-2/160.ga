@@ -1,0 +1,11 @@
+Input: tmp.aj
+Graph: 160 nodes, 292 edges
+Compute: 
+Breadth-First Search (BFS) based algorithm...
+Parallel optimization using OpenMP. Max number of threads: 8
+Diameter: 26
+Radius: 13
+Min Farness: 1048
+Extremities: 11, 150
+Center: 69, 72
+Centroid: 69, 71

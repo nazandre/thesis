@@ -1,0 +1,78 @@
+set terminal pdf noenhanced
+set output "graphs/queue-histograms.pdf"
+
+#see http://stackoverflow.com/questions/33022598/gnuplot-columnstacked-histogram-with-errorbars
+
+set datafile missing "-"
+
+set style data histogram
+
+set style histogram
+
+set lt 1 lc rgb "red"
+set lt 2 lc rgb "blue"
+set lt 3 lc rgb "#8B4513"
+set lt 4 lc rgb "dark-green"
+set lt 5 lc rgb "orange"
+set lt 6 lc rgb "purple"
+set lt 7 lc rgb "black"
+
+set style fill solid border
+set boxwidth 1
+unset xtics
+
+set xlabel " " offset 0,-1
+set ytics
+# font ",8"
+set grid y
+set auto y
+set auto x
+
+dir = "queue/queue-Ball-"
+
+#load 'variants.gpl'
+
+#<left>,<right>,<bottom>,<top>
+#title "Average number of messages sent per module"
+
+# to modify horizontal spacing between graphs: spacing X, ?Y?
+set multiplot layout 2,3 margins 0.1,0.95,0,0.90 spacing 0.10,0.08
+unset key
+
+belowMargin=0.35
+#set tmargin at screen 0
+set bmargin at screen belowMargin
+set ylabel "Maximum message queue size" offset 1.5,0 #font ",8"
+
+set yrange [0:20]
+
+plot newhistogram "Ball(5)\n231 modules" lt 1, dir.'10.dat' using 1:xtic(1) ti col, for [i=2:7] '' using i title columnheader(i)
+
+set bmargin at screen belowMargin
+
+plot newhistogram "Ball(15)\n 4,991 modules" lt 1, dir.'30.dat' using 1:xtic(1) ti col, for [i=2:7] '' using i title columnheader(i)
+
+set bmargin at screen belowMargin
+plot newhistogram "Ball(27)\n27,775 modules" lt 1, dir.'54.dat' using 1:xtic(1) ti col, for [i=2:7] '' using i title columnheader(i)
+
+unset ylabel
+set xlabel " " offset 0,0
+unset tics
+unset border
+
+set bmargin at screen 0
+set tmargin at screen 0.225
+set lmargin at screen 0
+set rmargin at screen 1
+
+set key center vertical nobox opaque title "Protocols: " noenhanced
+set key samplen 5
+
+#plot [][0:8000] newhistogram "" lt 1, NaN title "MRTP-MIN\_ID-PRED" lw 10, NaN title "MRTP-PC2LE-PRED" lw 10, NaN title "MRTP-PC2LE-RTT" lw 10, NaN title "TPSN-PC2LE-RTT" lw 10, NaN title "AD-RTT" lw 10, NaN title "AD-PRED" lw 10, NaN title "ATS-PRED" lw 10
+
+plot [][0:8000] newhistogram "" lt 1, NaN title "MRTP-PC2LE-PRED" lw 10, NaN title "MRTP-MIN\_ID-PRED" lw 10, NaN title "MLE\_TPSN-PC2LE-RTT" lw 10, NaN title "WMTS-PRED" lw 10, NaN title "ATS-PRED" lw 10
+
+#plot newhistogram "Ball(27)\n27,775 modules" lt 1, dir.'54.dat' using 1:xtic(1) ti col, for
+#[i=2:7] '' using i title columnheader(i)
+
+unset multiplot

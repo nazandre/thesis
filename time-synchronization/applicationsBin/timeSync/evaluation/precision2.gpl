@@ -1,0 +1,45 @@
+set terminal pdf
+
+set output "precision2.pdf"
+
+set termoption dash
+set for [i=1:7] linetype i dt i
+
+set linetype 3 dt 9
+
+set ylabel "Average maximum pairwise\nsynchronization error (ms)"
+
+set grid xtics ytics
+set mytics 2
+
+set xtics ("Ball(5)\n10-hop diameter\n231 modules" 10, "Ball(15)\n30-hop diameter\n 4,991 modules" 30, "" 54)
+
+#set label center "54-hop diameter\n27,775 modules" at 52,-11
+set label right "Ball(27)\n54-hop diameter\n27,775 modules" at screen 0.975,0.13
+
+set bmargin 4
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 3 lc rgb "#8B4513" ps 1 lw 1 pt 3  # brown
+#set style line 4 lt 4 lc rgb "#9ACD32" lw 1 pt 4
+set style line 4 lt 4 lc rgb "dark-green" lw 1 pt 4
+set style line 5 lt 5 lc rgb "orange" lw 1 pt 5
+set style line 6 lt 6 lc rgb "purple" lw 1 pt 6
+set style line 7 lt 7 lc rgb "cyan" lw 1 pt 8
+
+dir = "error-"
+
+#set multiplot layout 1,2
+
+set key inside top left noenhanced
+
+plot [2:57][0:35] dir.'summary.mrtp-e2ace' using 1:2:5 with yerrorlines linestyle 1 title "MRTP-PC2LE-PRED",\
+     dir.'summary.mrtp-diameter' using 1:2:5 with yerrorlines linestyle 2 title "MRTP-MIN\_ID-PRED",\
+     dir.'summary.tpsn-e2ace-mle' using 1:2:5 with yerrorlines linestyle 3 title "MLE\_TPSN-PC2LE-RTT",\
+     dir.'summary.wmts' using 1:2:5 with yerrorlines linestyle 4 title "WMTS-PRED",\
+     dir.'summary.ats' using 1:2:5 with yerrorlines linestyle 5 title "ATS-PRED",\
+     dir.'summary.PulseSync' using 1:2:5 with yerrorlines linestyle 7 title "PulseSync-PRED"
+
+#plot[2:57][] dir.'summary.wmts' using 1:2:5 with yerrorlines linestyle 4 title "WMTS-PRED",\
+#     dir.'summary.ats' using 1:2:5 with yerrorlines linestyle 5 title "ATS-PRED"

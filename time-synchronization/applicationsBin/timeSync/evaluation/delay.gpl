@@ -1,0 +1,33 @@
+set terminal pdf 
+#font "Times,18" size 10cm,6cm
+set output "graphs/delay.pdf"
+
+set termoption dash
+set for [i=1:2] linetype i dt i
+
+#set xtics 1
+#set mytics 2
+#set ytics 20
+set grid xtics ytics
+
+
+set ylabel "Probability"
+set xlabel "Bitrate (bit/s)" offset 0,0.5
+
+set format y "%.0f%%"
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+
+#set style line 3 lt 3 lc rgb "yellow" lw 2
+set style line 3 lt 3 lc rgb "dark-green" lw 2
+set style line 4 lt 4 lc rgb "orange" lw 2
+set style line 5 lt 5 lc rgb "purple" lw 2
+
+toTime(d) = (1000)*(21.0*8.0)/d
+
+#'hardware/one-way.dat'
+plot 'hardware/rtt/distribution-21.dat' using (toTime($1)):2 with linespoints linestyle 1 title "Hardware",\
+     'delay/oneway-density.dat' using (toTime($1)):2 with linespoints linestyle 2 title "Simulator"
+
+

@@ -1,0 +1,57 @@
+set terminal pdf
+#font "Times,18" size 10cm,6cm
+set output "graphs/precision-log.pdf"
+
+set termoption dash
+set for [i=1:7] linetype i dt i
+
+set linetype 3 dt 9
+
+set logscale y
+
+set ylabel "Synchronization error (ms)"
+
+set grid xtics ytics mxtics mytics
+#set mytics 2
+
+#set mxtics 2
+#unset xtics
+
+set ytics add ("5" 5)
+set xtics ("Ball(5)\n10-hop diameter\n231 modules" 10, "" 20 1, "Ball(15)\n30-hop diameter\n 4,991 modules" 30, "" 40 1, "Ball(27)" 54)
+set label center "54-hop diameter\n27,775 modules" at screen 0.9,0.085
+#52,-11
+
+#rotate by 45 right
+
+#set xtics left # offset -2,0
+
+set bmargin 4
+#set rmargin 6
+#set xlabel "Diameter"
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 3 lc rgb "#8B4513" ps 1 lw 1 pt 3  # brown
+set style line 4 lt 4 lc rgb "dark-green" lw 1 pt 4
+set style line 5 lt 5 lc rgb "orange" lw 1 pt 5
+set style line 6 lt 6 lc rgb "purple" lw 1 pt 6
+set style line 7 lt 7 lc rgb "black" lw 1 pt 7
+
+#dir = "results/L2D-reduced/error-"
+dir = "results/Ball/error-"
+#dir = "results-bak/Ball-noise5/error-"
+dir = "results/BallAll/error-"
+
+plot [9:55][5:1000] dir.'summary.mrtp-e2ace' using 1:2:5 with yerrorlines linestyle 2 title "MRTP-PC2LE-STATIC",\
+     dir.'summary.mrtp-diameter' using 1:2:5 with yerrorlines linestyle 1 title "MRTP-DIAMETER-STATIC",\
+     dir.'summary.mrtp-e2ace-rtt' using 1:2:5 with yerrorlines linestyle 3 title "MRTP-PC2LE-RTT",\
+     dir.'summary.tpsn-e2ace' using 1:2:5 with yerrorlines linestyle 4 title "MODIFIED-TPSN-PC2LE",\
+     dir.'summary.ad-rtt' using 1:2:5 with yerrorlines linestyle 5 title "AD-RTT",\
+     dir.'summary.ats' using 1:2:5 with yerrorlines linestyle 6 title "MODIFIED-ATS-STATIC"
+#,\
+#     dir.'summary.ftsp-diameter' using 1:2:5 with yerrorlines linestyle 7 title "MODIFIED-FTSP-STATIC"
+
+#dir.'summary.mrtp-diameter-rtt' using 1:2:5 with yerrorlines linestyle 3 title "MRTP-DIAMETER-RTT",\
+
+

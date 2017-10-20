@@ -1,0 +1,45 @@
+Communication parameters:
+Sizeof(module id and system size): 2
+Random logical IDs: 0
+ControlledBroadcast: 1
+TwoWayBFSSP: 0
+TwoWayIESP: 1
+WaitOneNeighborInsteadOfAll: 1
+Election algorithm:
+	Algorithm: MINIMUM_ID
+Seed: 20
+There are 640 modules in the configuration
+[1;33mScheduler Mode :1[0m
+[1;33mScheduler Length :1[0m
+[1;33mScheduler : start order received 0[0m
+Communication parameters: 
+	Bitrate:
+		|neighbors| : 
+		<=2 : N(28330.5,1111.76)
+		<=4 : N(26666.7,2470.59)
+		<=6 : N(25846.2,2470.59)
+Algorithm-specific variable memory usage per node: 20 bytes.
+@1: has won the election at 788151!
+[1;33mScheduler end : 942661[0m
+
+=== GLOBAL STATISTICS ===
+Number of robots: 640
+Simulator elapsed time: 788151 us
+Real elapsed time: 942661.00 us
+Number of events processed: 273672
+Number of messages processed: 58310
+Number of motions processed: 0
+Maximum sized reached by the events list: 4897
+Size of the events list at the end: 0
+Events(s) left in memory before destroying Scheduler: 0
+Message(s) left in memory before destroying Scheduler: 0
+Number of events processed per second: 290318.58
+Individual stats exported in individualStats.dat!
+=== STATISTICS PER MODULE ===
+Format: "parameter: min mean max standard-deviation"
+Sent messages: 6 91.109375 195 40.813531
+Received messages: 9 91.109375 198 40.645963
+Maximum message queue size: 3 8.040625 11 1.170566
+Maximum outgoing message queue size: 2 7.029687 10 1.162188
+Maximum incomming message queue size: 1 2.062500 4 0.569402
+Motions: 0 0.000000 0 0.000000

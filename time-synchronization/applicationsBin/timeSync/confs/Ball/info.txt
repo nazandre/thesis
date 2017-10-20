@@ -1,0 +1,3 @@
+10.xml => radius = 5, 231 modules
+30.xml => radius = 15, 4991 modules
+54.xml => radius = 27, 27775 modules

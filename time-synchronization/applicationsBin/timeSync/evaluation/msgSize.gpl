@@ -1,0 +1,20 @@
+set terminal pdf 
+set output "graphs/msgSize.pdf"
+
+set termoption dash
+set for [i=1:3] linetype i dt i
+
+set grid xtics ytics
+
+set ylabel "Message size (byte)"
+set xlabel "time (min)"
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 3 lc rgb "dark-green" lw 2
+set style line 4 lt 4 lc rgb "orange" lw 2
+set style line 5 lt 5 lc rgb "purple" lw 2
+set style line 6 lt 6 lc rgb "black" lw 2
+set style line 7 lt 7 lc rgb "green" lw 2
+
+plot '../msgSize-sim.out' using ($1/1000/1000/60):2 with linespoints linestyle 1 title "1"

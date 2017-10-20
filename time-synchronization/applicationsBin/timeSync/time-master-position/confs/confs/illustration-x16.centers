@@ -1,0 +1,11 @@
+Input: illustration-x16.aj
+Graph: 11648 nodes, 31120 edges
+Compute: 
+Breadth-First Search (BFS) based algorithm...
+Parallel optimization using OpenMP. Max number of threads: 8
+Diameter: 169
+Radius: 85
+Min Farness: 411456
+Extremities: 10493, 11588
+Center: 4613, 4617, 4625, 4629, 4630, 4634, 4641, 4642, 4646, 4647, 4658, 4659
+Centroid: 3222

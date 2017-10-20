@@ -1,0 +1,71 @@
+set terminal pdf
+
+set output "graphs/window.pdf"
+
+set multiplot layout 1,2
+
+set termoption dash
+
+set key inside right top vertical Right noreverse noenhanced autotitles nobox #title "# synchronization\npoints"
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+
+set ylabel "Probability"
+set xlabel "Synchronization error estimation (ms)"
+
+set format y "%.0f%%"
+
+set mxtics 5
+set mytics 5
+set xtics 5
+set ytics 10
+set grid xtics ytics 
+#mxtics mytics
+
+set origin 0,0.5
+set size 0.5,0.5
+
+set key at 20,48
+set label 1 "5 synchronization points" at -17,53
+plot [-20:20][0:60] 'hardware/window/5w.dat' using 1:2 title "hardware" with linespoints linestyle 1
+#,\
+#     'results/fidelity/window/5w.dat' using 1:2 title "simulator" with linespoints linestyle 2
+unset label 1
+
+set origin 0,0
+set size 0.5,0.5
+set label 1 "30 synchronization points" at -17,53
+
+plot [-20:20][0:60] 'hardware/window/30w.dat' using 1:2 title "hardware" with linespoints linestyle 1
+#,\
+#     'results/fidelity/window/30w.dat' using 1:2 title "simulator" with linespoints linestyle 2
+
+unset label 1
+
+#set nokey
+
+set origin 0.5,0
+set size 0.5,1
+
+set xlabel "Number of synchronization points"
+set ylabel "Average relative synchronization\nerror estimation (ms)"
+
+set xtics 5
+set ytics 2
+set mxtics 5
+set mytics 5
+set grid xtics ytics
+#mxtics mytics 
+
+set key inside top right
+
+set format y "%.0f"
+
+plot [0:31][-6:6] 'hardware/window/summary.dat' using 1:2:5 title "hardware" with yerrorlines linestyle 1
+#,\
+#'results/fidelity/window/summary.dat' using 1:2:5 title "simulator" with yerrorlines linestyle 2
+
+unset multiplot
+
+#[0:31]

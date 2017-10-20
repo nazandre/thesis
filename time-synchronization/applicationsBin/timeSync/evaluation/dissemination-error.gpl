@@ -1,0 +1,73 @@
+set terminal pdf
+set output "graphs/dissemination-error.pdf"
+
+set multiplot layout 2,1
+
+set termoption dash
+
+set origin 0,0.5
+set size 0.5,0.5
+
+#set for [i=1:2] linetype i dt i
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 2 lc rgb "black" lw 1 pt 3
+set style line 4 lt 2 lc rgb "green" lw 1 pt 4
+
+set ylabel "Probability"
+set xlabel "Global time dissemination error (ms)"
+
+set format y "%.0f%%"
+
+set mxtics 5
+set mytics 5
+set grid xtics ytics
+
+#set key inside left top vertical Left reverse enhanced autotitles nobox title "Distance (hops)"
+#set ylabel "Probability"
+
+set key at 10,82
+hardwareDir = 'hardware/quality/distribution-'
+
+set label 1 "Number of hops: 2" at -9.5,91 front  
+plot [-10:10][0:100] hardwareDir.'pred/2-density.dat' using 1:2 title "PRED-hardware" with linespoints linestyle 1,\
+     'dissemination-error-pred/2-dissemination-error-density.dat' using 1:2 title "PRED-simulator" with linespoints linestyle 2
+     #,\
+     #hardwareDir.'rtt/2-density.dat' using 1:2 title "RTT-hardware" with linespoints linestyle 3,\
+    # 'dissemination-error-rtt/2-dissemination-error-density.dat' using 1:2 with yerrorlines linestyle 4 title "RTT-simulator"
+
+#,\
+#      hardwareDir.'fd/2-density.dat' using 1:2 title "FD-hardware" with linespoints linestyle 5
+     
+unset label 1
+
+set origin 0,0
+set size 0.5,0.5
+
+set label 1 "Number of hops: 18" at -9.5,91 front  
+plot [-10:10][0:100] hardwareDir.'pred/18-density.dat' using 1:2 title "PRED-hardware" with linespoints linestyle 1,\
+     'dissemination-error-pred/18-dissemination-error-density.dat' using 1:2 title "PRED-simulator" with linespoints linestyle 2
+unset label 1
+
+unset label 1
+      
+set origin 0.5,0
+set size 0.5,1
+
+set xlabel "Distance (hops)"
+set ylabel "Average global-time\ndissemination error (ms)"
+
+set format y "%.1f"
+set key inside top right
+
+set pointintervalbox 2
+
+# pointinterval 2
+
+plot [0:28][-10:10] hardwareDir.'pred/summary.dat' using 1:2:5 with yerrorlines linestyle 1 title "PRED-hardware",\
+     'dissemination-error-pred/dissemination-error-summary.dat' using 1:2:5 every 2::0 with yerrorlines linestyle 2 title "PRED-simulator",\
+     hardwareDir.'rtt/summary.dat' using 1:2:5 with yerrorlines linestyle 3 title "RTT-hardware",\
+     'dissemination-error-rtt/dissemination-error-summary.dat' using 1:2:5 every 2::0 with yerrorlines linestyle 4 title "RTT-simulator",\
+     hardwareDir.'fd/summary.dat' using 1:2:5 with yerrorlines linestyle 5 title "FD-hardware"
+
+unset multiplot

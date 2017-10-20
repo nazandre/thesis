@@ -1,0 +1,45 @@
+set terminal pdf noenhanced
+set output "graphs/messages.pdf"
+
+#see http://stackoverflow.com/questions/33022598/gnuplot-columnstacked-histogram-with-errorbars
+
+set title "Average number of messages sent per module"
+set datafile missing "-"
+
+#set logscale y
+
+set style data histogram
+
+set style histogram rowstacked
+#set style histogram clustered gap 1 title offset 2,0.25
+
+set lt 1 lc rgb "blue"
+set lt 2 lc rgb "green"
+set lt 3 lc rgb "red"
+
+set style fill solid border
+set boxwidth 0.5
+unset xtics
+set xtics nomirror rotate by -45 scale 0,0 font ",8" #autojustify
+#offset 0, 10, 0.1
+set xlabel " " offset 0,2
+set ytics font ",8"
+set grid y
+set auto y
+set auto x
+
+
+set key top center Right noreverse nobox title "Types of messages:" opaque width 1
+#set key under horizontal center nobox title "Types of messages:"
+
+#set bars 0.5
+
+dir = "messages/Ball/"
+
+plot \
+newhistogram "Ball(5)" lt 1, \
+dir.'10.dat' using "Leader":xtic(1) t "Leader election", '' u "Infrastructure" t "Infrastructure", '' u "Synchronization" t col,\
+newhistogram "Ball(15)" lt 1, \
+dir.'30.dat' using "Leader":xtic(1) notitle, '' u "Infrastructure" notitle, '' u "Synchronization" notitle,\
+newhistogram "Ball(27)" lt 1, \
+dir.'54.dat' using "Leader":xtic(1) notitle, '' u "Infrastructure" notitle, '' u "Synchronization" notitle

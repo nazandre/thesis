@@ -1,0 +1,23 @@
+set terminal pdf
+
+set output "graphs/synchronization-error.pdf"
+
+set termoption dash
+set for [i=1:2] linetype i dt i
+
+set ylabel "Probability"
+set xlabel "Synchronization error estimation (ms)"
+
+set format y "%.0f%%"
+
+set mxtics 5
+set mytics 5
+set xtics 10
+set ytics 10
+set grid xtics ytics
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+
+plot [-10:10] 'tm-error/synchronization-error-density.dat' using 1:2 title "simulator" with linespoints linestyle 1, \
+     'hardware/synchronization-error-density.dat' using 1:2 title "hardware" with linespoints linestyle 2

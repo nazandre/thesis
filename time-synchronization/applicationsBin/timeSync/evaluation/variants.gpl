@@ -1,0 +1,23 @@
+set termoption dash
+#set for [i=1:7] linetype i dt i
+#set linetype 3 dt 9
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 3 lc rgb "#8B4513" lw 1 pt 3  # brown
+set style line 4 lt 4 lc rgb "dark-green" lw 1 pt 4
+set style line 5 lt 5 lc rgb "orange" lw 1 pt 5
+set style line 6 lt 6 lc rgb "purple" lw 1 pt 6
+set style line 7 lt 7 lc rgb "black" lw 1 pt 7
+
+#do for [i=1:words(diams)] {
+#name = word(diams, i)
+
+#variants = "mrtp-diameter mrtp-e2ace mrtp-e2ace-rtt tpsn-e2ace ad-rtt ad ats"
+#names = "MRTP-MINID-PRED MRTP-PC2LE-PRED MRTP-PC2LE-RTT TPSN-PC2LE-RTT AD-RTT AD ATS-PRED"
+
+#variants = "mrtp-diameter mrtp-e2ace tpsn-e2ace tpsn-e2ace-mle ad ats"
+#names = "MRTP-MIN_ID-PRED MRTP-PC2LE-PRED MRTP-PC2LE-RTT TPSN-PC2LE-RTT MLE\_TPSN-PC2LE-RTT AD ATS-PRED"
+
+variants = "mrtp-diameter mrtp-e2ace tpsn-e2ace-mle ad ats"
+names = "MRTP-MIN\_ID-PRED MRTP-PC2LE-PRED MLE\_TPSN-PC2LE-RTT AD ATS-PRED"

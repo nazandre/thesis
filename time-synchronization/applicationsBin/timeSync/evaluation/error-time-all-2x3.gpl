@@ -1,0 +1,135 @@
+set terminal pdf font ' , 8 ' size 10cm,15cm
+
+set output "graphs/error-time-all-2x3.pdf"
+
+set termoption dash
+#set for [i=1:7] linetype i dt i
+#set linetype 3 dt 9
+
+set xlabel "Time (min)"
+set ylabel "Maximum pairwise\nsynchronization error (ms)"
+
+diams = "10 30 54"
+names = "5 15 27"
+modules = "231 4,991 27,775 "
+dir = "results/Ball/"
+file = "error."
+
+rescaleY(t) = t/1000
+rescaleX(t) = (t/1000/1000/60)
+
+#set style fill transparent solid 0.5
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 3 lc rgb "#8B4513" lw 1 pt 3  # brown
+set style line 4 lt 4 lc rgb "#9ACD32" lw 1 pt 4
+set style line 5 lt 5 lc rgb "orange" lw 1 pt 5
+set style line 6 lt 6 lc rgb "purple" lw 1 pt 6
+#set style line 7 lt 7 lc rgb "cyan" lw 1 pt 7
+set style line 7 lt 7 lc rgb "#7700FFFF" lw 1 pt 7
+set style line 8 lt 8 lc rgb "magenta" lw 1 pt 8
+
+set grid xtics ytics
+#mxtics ytics
+
+set macros
+PLOT_DATA = "plot [58:120][1:1000000] folder.'mrtp-e2ace' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 1 title 'MRTP-PC2LE-PRED',\
+     folder.'mrtp-diameter' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 2 title 'MRTP-MINID-PRED',\
+     folder.'tpsn-diameter-mle' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 3 title 'MLE_TPSN-MIN\_ID',\
+     folder.'wmts' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 4 title 'WMTS-PRED',\
+     folder.'ats' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 5 title 'ATS-PRED',\
+     folder.'ftsp-diameter' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 6 title 'FTSP-PRED',\
+     folder.'PulseSync' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 7 title 'PulseSync-PRED'
+
+
+PLOT_DATA_2 = "plot folder.'mrtp-e2ace' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 1 title 'MRTP-PC2LE-PRED',\
+     folder.'mrtp-diameter' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 2 title 'MRTP-MIN\_ID-PRED',\
+     folder.'tpsn-diameter-mle' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 3 title 'MLE_TPSN-PC2LE-RTT',\
+     folder.'wmts' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 4 title 'WMTS-PRED',\
+     folder.'ats' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 5 title 'ATS-PRED',\
+     folder.'ftsp-diameter' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 6 title 'FTSP-PRED',\
+     folder.'PulseSync' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 7 title 'PulseSync-PRED'
+
+set multiplot layout 3,2
+
+set tmargin 5
+
+do for [i=1:words(diams)] {
+   name = word(diams, i)
+   folder = dir.name.'/'.file
+   radius = word(names,i)
+   diameter = word(diams,i)
+   module = word(modules,i)
+   
+   set format y "10^{%.0T}"
+   set ytics add ("1" 1)
+   set logscale y
+   set mytics 10
+   set mxtics 5
+
+   msgStart = "60m: synchronization start"
+   if (i == 1) {
+      set key at 117,200000 noenhanced
+      set arrow from 73,250000 to 63,50000 head
+      set label 12 msgStart at 70,400000 enhanced
+   } else {
+   set nokey
+   if (i == 2) {
+      unset label 12
+      unset arrow
+      set arrow from 73,250000 to 62,80000 head
+      set label 12 msgStart at 70,400000 enhanced
+      #set label 12 "60m: Synchronization start" at 80,500000
+   } else {
+      unset label 12
+      unset arrow
+      set arrow from 75,20000 to 62,50000 head
+      set label 12 "60m: Synchronization start" at 76,20000
+   }
+   }
+
+   set title ""
+   @PLOT_DATA
+   
+   set title "Zoomed version" offset -1,0
+   unset logscale y
+   unset label
+   unset format y
+   set mytics 5
+   set mxtics 6
+   set xtics add ("59:30" 59.5)
+   set xtics add ("60:30" 60.5)	
+   set xtics add ("61:30" 61.5)
+   unset ytics
+   set ytics
+   #set xtics add ("60\nSynchronization\nstart" 60)
+   
+   if (i == 3) {
+      set arrow 1 from screen 0.1,screen 0.655 to screen 0.9, screen 0.655 nohead lc rgb 'black' lw 1.5
+      set arrow 2 from screen 0.1,screen 0.325 to screen 0.9, screen 0.325 nohead lc rgb 'black' lw 1.5
+      
+      set label 1 center at screen 0.5, screen 0.97 'Ball(5): 10 hop diameter and 231 modules' font ',10' enhanced
+      set label 2 center at screen 0.5, screen 0.64 'Ball(15): 30 hop diameter and 4,991 modules' font ',10' enhanced
+      set label 3 center at screen 0.5, screen 0.31 'Ball(27): 54 hop diameter and 27,775 modules' font ',10' enhanced
+   }
+
+   set xrange [59.5:62]
+   if (i == 1) {
+      set yrange [0:40]
+   } else {
+     if( i == 2) {
+       set yrange [0:40]
+     } else {
+       set yrange [0:40]
+     }
+   }
+
+   @PLOT_DATA_2
+
+   unset label
+   unset xtics
+   set xtics
+}
+
+unset multiplot

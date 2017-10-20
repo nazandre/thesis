@@ -1,0 +1,61 @@
+set terminal pdf 
+set output "graphs/period.pdf"
+
+set multiplot layout 2,1
+
+set termoption dash
+
+#set key inside right top vertical Right noreverse noenhanced autotitles nobox
+
+set ylabel "Probability"
+set xlabel "Synchronization error estimation (ms)"
+
+set format y "%.0f%%"
+
+set mxtics 5
+set mytics 5
+set xtics 10
+set ytics 10
+set grid xtics ytics
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+
+set origin 0,0.5
+set size 0.5,0.5
+
+#set nokey
+set label 1 "Runtime synchronization\nperiod: 5s" at -17,35 front  
+plot [-20:20][0:60] 'hardware/period/5sec.dat' using 1:2 title "hardware" with linespoints linestyle 1,\
+     'results/fidelity/period/5sec.dat' using 1:2 title "simulator" with linespoints linestyle 2
+unset label 1
+
+set origin 0,0
+set size 0.5,0.5
+
+set key 
+set label 1 "Runtime synchronization\nperiod: 20s" at -17,35
+plot [-20:20][0:60] 'hardware/period/20sec.dat' using 1:2 title "hardware" with linespoints linestyle 1,\
+     'results/fidelity/period/20sec.dat' using 1:2 title "simulator" with linespoints linestyle 2
+unset label 1
+      
+set origin 0.5,0
+set size 0.5,1
+
+set xlabel "Runtime synchronization period (s)"
+set ylabel "Average relative synchronization\nerror estimation (ms)"
+
+set xtics 10
+set ytics 5
+set mxtics 5
+set mytics 5
+set grid xtics ytics
+#mxtics mytics 
+
+set format y "%.0f"
+#($1 &lt;=3  ? $2 : 1/0)
+
+plot [0:62] 'hardware/period/summary.dat' using 1:2:5 title "hardware" with yerrorlines linestyle 1,\
+     'results/fidelity/period/summary.dat' using 1:2:5 title "simulator" with yerrorlines linestyle 2
+
+unset multiplot

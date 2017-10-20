@@ -1,0 +1,30 @@
+set terminal pdf
+set output "quality-estimation-color.pdf"
+
+set multiplot layout 1,2
+
+set xtics 2
+#set ytics 5
+set mxtics 2
+set mytics 2
+set grid xtics ytics
+#mxtics mytics
+
+set key inside left top vertical Left reverse enhanced autotitles nobox title "Distance (hops)"
+set ylabel "Probability"
+set xlabel "Global time dissemination error (ms)"
+
+set format y "%.0f%%"
+
+plot 'quality-data/4-density.dat' using 1:2 with linespoints title "4",\
+'quality-data/10-density.dat' using 1:2 with linespoints title "6",\
+   'quality-data/18-density.dat' using 1:2 with linespoints title "20"
+   
+set xlabel "Distance (hops)"
+set ylabel "Average absolute global time\ndissemination error (ms)"
+
+set format y "%.1f"
+set nokey
+set xtics 4
+plot 'quality-data/summary.dat' using 1:2:5 with yerrorlines title "average"
+unset multiplot

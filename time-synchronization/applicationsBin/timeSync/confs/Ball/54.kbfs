@@ -1,0 +1,67 @@
+Communication parameters:
+Sizeof(module id and system size): 2
+Random logical IDs: 0
+ControlledBroadcast: 1
+TwoWayBFSSP: 0
+TwoWayIESP: 1
+WaitOneNeighborInsteadOfAll: 1
+Election algorithm:
+	Algorithm: EXTREMUM_CENTER
+	Version: VERSION_CENTER
+Seed: 20
+There are 27775 modules in the configuration
+[1;33mScheduler Mode :1[0m
+[1;33mScheduler Length :1[0m
+[1;33mScheduler : start order received 0[0m
+Communication parameters: 
+	Bitrate:
+		|neighbors| : 
+		<=2 : N(28330.5,1111.76)
+		<=4 : N(26666.7,2470.59)
+		<=6 : N(25846.2,2470.59)
+Algorithm-specific variable memory usage per node: 100 bytes.
+@1: Initiator elected (IE_BFS-SP_CONV) at 1595632 size: 27775 ecc: 54
+@1: Initiator elected at 1595632
+@4358: BFS completed (BFS-SP_ONE-WAY) at 2692258 size: 27775 ecc: 54
+@4358: BFS 2 completed.
+@17576: BFS completed (BFS-SP_ONE-WAY) at 3789383 size: 27775 ecc: 54
+@17576: BFS 3 completed.
+@11659: BFS completed (BFS-SP_ONE-WAY) at 4897318 size: 27775 ecc: 54
+@11659: BFS 4 completed.
+@18428: BFS completed (BFS-SP_ONE-WAY) at 6008663 size: 27775 ecc: 54
+@18428: BFS 5 completed.
+@2263: BFS completed (BFS-SP_ONE-WAY) at 7134927 size: 27775 ecc: 54
+@2263: BFS 6 completed.
+@13741: BFS completed (BFS-SP_ONE-WAY) at 8239214 size: 27775 ecc: 54
+@13741: BFS 7 completed.
+@9187: BFS completed (BFS-SP_ONE-WAY) at 9333371 size: 27775 ecc: 54
+@9187: BFS 8 completed.
+@2597: BFS completed (BFS-SP_ONE-WAY) at 10425453 size: 27775 ecc: 54
+@2597: BFS 9 completed.
+@9039: BFS completed (BFS-SP_ONE-WAY) at 11524864 size: 27775 ecc: 54
+@9039: BFS 10 completed.
+@25561: has won the election at 11704823!
+@25561: Elected with value: 27
+[1;33mScheduler end : 149471803[0m
+
+=== GLOBAL STATISTICS ===
+Number of robots: 27775
+Simulator elapsed time: 11704823 us
+Real elapsed time: 149471803.00 us
+Number of events processed: 31564508
+Number of messages processed: 6837302
+Number of motions processed: 0
+Maximum sized reached by the events list: 315145
+Size of the events list at the end: 0
+Events(s) left in memory before destroying Scheduler: 0
+Message(s) left in memory before destroying Scheduler: 0
+Number of events processed per second: 211173.66
+Individual stats exported in individualStats.dat!
+=== STATISTICS PER MODULE ===
+Format: "parameter: min mean max standard-deviation"
+Sent messages: 32 246.167489 398 52.981600
+Received messages: 19 246.167489 393 55.436044
+Maximum message queue size: 4 12.394059 19 2.004460
+Maximum outgoing message queue size: 3 11.357372 18 2.006172
+Maximum incomming message queue size: 1 2.671503 6 0.854296
+Motions: 0 0.000000 0 0.000000

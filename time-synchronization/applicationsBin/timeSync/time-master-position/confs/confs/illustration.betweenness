@@ -1,0 +1,7 @@
+Input: illustration.aj
+Graph: 182 nodes, 307 edges
+Compute: 
+Breadth-First Search (BFS) based algorithm...
+Parallel optimization using OpenMP. Max number of threads: 8
+Max betweenness: 15217.5
+Betweenness center: 96

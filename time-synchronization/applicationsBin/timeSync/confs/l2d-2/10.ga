@@ -1,0 +1,11 @@
+Input: 10.aj
+Graph: 10 nodes, 13 edges
+Compute: 
+Breadth-First Search (BFS) based algorithm...
+Parallel optimization using OpenMP. Max number of threads: 8
+Diameter: 5
+Radius: 3
+Min Farness: 15
+Extremities: 1, 10
+Center: 5, 6, 7
+Centroid: 5

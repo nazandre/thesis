@@ -1,0 +1,25 @@
+set terminal pdf noenhanced
+#enhanced 
+set output "graphs/queue.pdf"
+#mono font ",16"
+
+#set termoption enhanced
+
+set xlabel "System size"
+set ylabel "Maximum message queue size"
+
+set xtics 3000
+set mxtics 3
+set ytics 1
+
+set grid xtics ytics
+
+load 'variants.gpl'
+
+dir = "queue/"
+
+decr(i) = i - 1
+ 
+print dir
+set yrange [0:15]
+plot for [i=1:words(variants)] dir.'queue.'.word(variants,i) using 1:2 with linespoints title word(names,i-1) linestyle decr(i)

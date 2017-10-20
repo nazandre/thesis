@@ -1,0 +1,51 @@
+set terminal pdf
+#size 25cm,12cm font ' Times, 20 '
+set output "graphs/error-time-ats.pdf"
+
+set termoption dash
+#set for [i=1:7] linetype i dt i
+#set linetype 3 dt 9
+
+set xlabel "Time (min)"
+set ylabel "Synchronization error (ms)"
+
+dir = "results-bak/Ball-1/10/error."
+#dir = "results-bak/Ball/10/error."
+#dir = "results-bak/Ball-noise1/10/error."
+
+rescaleY(t) = t/1000
+rescaleX(t) = (t/1000/1000/60)
+
+#smooth {unique | frequency | csplines | acsplines | bezier | sbezier}
+#with lines
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 3 lc rgb "#8B4513" ps 1 lw 1 pt 3  # brown
+set style line 4 lt 4 lc rgb "#9ACD32" lw 1 pt 4
+set style line 5 lt 5 lc rgb "orange" lw 1 pt 5
+set style line 6 lt 6 lc rgb "purple" lw 1 pt 6
+set style line 7 lt 7 lc rgb "black" lw 1 pt 7
+set style line 8 lt 7 lc rgb "yellow" lw 1 pt 7
+set style line 9 lt 7 lc rgb "magenta" lw 1 pt 7
+
+set grid xtics mxtics ytics
+set mytics 5
+set mxtics 5
+
+
+set logscale y
+
+set arrow from 63,30000 to 60,43000 head
+set label "Synchronization start" at 63.5,30000
+plot [58:120][] dir.'mrtp-e2ace' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 2 title "MRTP-PC2LE-STATIC",\
+     dir.'mrtp-diameter' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 1 title "MRTP-DIAMETER-STATIC",\
+     dir.'mrtp-e2ace-rtt' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 3 title "MRTP-PC2LE-RTT",\
+     dir.'tpsn-e2ace' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 4 title "MODIFIED-TPSN-PC2LE",\
+     dir.'ad-rtt' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 5 title "AD-RTT",\
+     dir.'ats' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 6 title "MODIFIED-ATS-STATIC-60",\
+     dir.'ats-120' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 7 title "MODIFIED-ATS-STATIC-120",\
+     dir.'ats-30' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 8 title "MODIFIED-ATS-STATIC-30",\
+     dir.'ats-5' using (rescaleX($1)):(rescaleY($2)) smooth unique linestyle 9 title "MODIFIED-ATS-STATIC-5"
+#,\
+#     dir.'ftsp-diameter' using (rescaleX($1)):(rescaleY($2)) with linespoints linestyle 7 title #"MODIFIED-FTSP-STATIC"

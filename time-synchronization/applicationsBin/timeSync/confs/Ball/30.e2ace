@@ -1,0 +1,57 @@
+Communication parameters:
+Sizeof(module id and system size): 2
+Random logical IDs: 0
+ControlledBroadcast: 1
+TwoWayBFSSP: 0
+TwoWayIESP: 1
+WaitOneNeighborInsteadOfAll: 1
+Election algorithm:
+	Algorithm: E2ACE
+	Version: VERSION_CENTER
+	Probabilistic counter: HYPER_LOG_LOG
+		Hash func: KNUTH MULTIPLICATIVE
+			Number of hash functions: as much as possible
+Seed: 20
+There are 4991 modules in the configuration
+[1;33mScheduler Mode :1[0m
+[1;33mScheduler Length :1[0m
+[1;33mScheduler : start order received 0[0m
+Communication parameters: 
+	Bitrate:
+		|neighbors| : 
+		<=2 : N(28330.5,1111.76)
+		<=4 : N(26666.7,2470.59)
+		<=6 : N(25846.2,2470.59)
+Available space in message (byte): 11
+1 hash funcs:
+	Knuth hash func
+HyperLogLog: 16 registers of 5 bits 
+Algorithm-specific variable memory usage per node: 86 bytes.
+@1: Initiator elected (IE_BFS-SP_CONV) at 950783 size: 4991 ecc: 30
+E2ACE initiator elected: 1 at 950783
+Test tree height: 30
+E2ACE center elected: 806 (15)
+@806: has won the election at 1955639!
+[1;33mScheduler end : 38791983[0m
+
+=== GLOBAL STATISTICS ===
+Number of robots: 4991
+Simulator elapsed time: 1955639 us
+Real elapsed time: 38791983.00 us
+Number of events processed: 10222239
+Number of messages processed: 2097269
+Number of motions processed: 0
+Maximum sized reached by the events list: 54121
+Size of the events list at the end: 0
+Events(s) left in memory before destroying Scheduler: 0
+Message(s) left in memory before destroying Scheduler: 3245
+Number of events processed per second: 263514.22
+Individual stats exported in individualStats.dat!
+=== STATISTICS PER MODULE ===
+Format: "parameter: min mean max standard-deviation"
+Sent messages: 68 420.210178 561 98.952648
+Received messages: 66 420.210178 555 100.203796
+Maximum message queue size: 3 11.611100 18 2.470671
+Maximum outgoing message queue size: 2 10.593669 17 2.465631
+Maximum incomming message queue size: 1 2.900220 6 0.770149
+Motions: 0 0.000000 0 0.000000

@@ -1,0 +1,50 @@
+Time-Sync:
+	Protocol: MRTP
+	Master id: 577
+	TimeToElectTimeMaster: 3000000
+	RoundTrip: 0
+	LinearRegression: 1
+	LinearRegressionWindowSize: 5
+	MaxReachedEnabled: 1
+	SynchronizationPeriod1: 2000000
+	SynchronizationPeriod2: 5000000
+	Communication model: INTERMEDIATE_COMM_MODEL
+Seed: 9040
+There are 1456 modules in the configuration
+[1;33mScheduler Mode :1[0m
+[1;33mScheduler Length :1[0m
+[1;33mScheduler : start order received 0[0m
+Run simulation...
+Same parameters as the master clock: 
+	Module id: 401
+	Clockseed: 1
+	Noise id: 1
+Master clock parameter: 
+	Module id: 577
+	Clockseed: 1
+	Noise id: 1
+Same parameters as the master clock: 
+	Module id: 765
+	Clockseed: 1
+	Noise id: 1
+Same parameters as the master clock: 
+	Module id: 1311
+	Clockseed: 1
+	Noise id: 1
+@577: Time Master elected!
+@577: Spanning-tree constructed!
+@577: Convergecast time max done!
+[1;33mScheduler end : 19432095[0m
+
+=== GLOBAL STATISTICS ===
+Number of robots: 1456
+Simulator elapsed time: 3606000000 us
+Real elapsed time: 19432095.00 us
+Number of events processed: 6368028
+Number of messages processed: 1059359
+Number of motions processed: 0
+Maximum sized reached by the events list: 8281
+Size of the events list at the end: 0
+Events(s) left in memory before destroying Scheduler: 0
+Message(s) left in memory before destroying Scheduler: 0
+Number of events processed per second: 327706.71
