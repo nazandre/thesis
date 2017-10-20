@@ -5,6 +5,10 @@ VisibleSim + C2SR implementation
 
 Naz, A., Piranda, B., Bourgeois, J., & Goldstein, S. C. (2016, October). A distributed self-reconfiguration algorithm for cylindrical lattice-based modular robots. In Network Computing and Applications (NCA), 2016 IEEE 15th International Symposium on (pp. 254-263). IEEE.
 
+## How to have a look at C2SR source code?
+
+The C2SR main source code is [here](applicationsSrc/c2sr.cpp).
+
 ## How to run C2SR?
 
 1. Compile C2SR and VisibleSim (the procedure is described below).
