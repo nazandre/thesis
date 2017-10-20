@@ -1,8 +1,9 @@
 VisibleSim + Centrality-based leader algorithms
 ================================
 
-We propose a collection of distributed centrality-based leader algorithms, namely the k-BFS SumSweep, ABC-Center and PC2LE (Probabilistic-Counter based
-Central-Leader Election).
+This folder provides codes and scripts used for the evaluation of our work on network centrality.
+
+In this thesis, we proposed a collection of distributed centrality-based leader algorithms, namely the k-BFS SumSweep, ABC-Center and PC2LE (Probabilistic-Counter based Central-Leader Election). We compare our algorithms to existing ones.
 
 ## Associated publications
 
@@ -46,47 +47,47 @@ All the algorithm source codes are available the [applicationsSrc/centrality](ap
 2. Run an algorithm
 ```
 ./centrality -R -k BB -i -a [simulation seed] -c [xml configuration file] -A [algorithm id] -H [hashfunc id] [parameters] -V [version]
+
 # Possible parameters values are listed below.
+
 # For instance:
+
 ## ABC-CenterV2:
-./centrality -R -k BB -a 12 -c evaluation/confs/confs/bb/r/10
-0/106.xml -A 4
+./centrality -R -k BB -a 12 -c evaluation/confs/confs/bb/r/100/106.xml -A 4
 
 ## k-BFS SumSweep to elect an approximate center node:
-/centrality -R -k BB -a 12 -c evaluation/confs/confs/bb/r/10
-0/106.xml -A 10 -V 1
+/centrality -R -k BB -a 12 -c evaluation/confs/confs/bb/r/100/106.xml -A 10 -V 1
 
 ## PC2LE, HyperLogLog counter with Knuth's hash function to elect an approximate center node:
-./centrality -R -k BB -a 12 -c evaluation/confs/confs/bb/r/10
-0/106.xml -A 5 -P 3 -H 4 0 -V 1
+./centrality -R -k BB -a 12 -c evaluation/confs/confs/bb/r/100/106.xml -A 5 -P 3 -H 4 0 -V 1
 ```
 
 Parameter possible values:
 * Simulation seed: any number, "-1" for a randomly generated seed
 * Algorithm id:
-** MIN-ID = 1
-** ABC_CENTER_V1 = 3
-** ABC_CENTER_V2 = 4
-** PC2LE = 5
-** TBCE = 6
-** Exact = 7
-** k-BFS SumSweep = 10 (k = 10, hard coded)
-** PC2LE-MC2 = 12
-** k-BFS-RAND-SEQ = 13 (k = 10, hard coded)
-** k-BFS-RAND-PAR = 14 (k = 10, hard coded)
+  * MIN-ID = 1
+  * ABC_CENTER_V1 = 3
+  * ABC_CENTER_V2 = 4
+  * PC2LE = 5
+  * TBCE = 6
+  * BARYCENTER = 7
+  * k-BFS SumSweep = 10 (k = 10, hard coded)
+  * PC2LE-MC2 = 12
+  * k-BFS-RAND-SEQ = 13 (k = 10, hard coded)
+  * k-BFS-RAND-PAR = 14 (k = 10, hard coded)
 * Versions:
-  ** (Approximate) Center node election = 1
-  ** (Approximate) Centroid node election = 2
+  * (Approximate) Center node election = 1
+  * (Approximate) Centroid node election = 2
 * Probabilistic Counters:
-  ** Flajollet-Martin = 2
-  ** HyperLogLog = 3
-*  Hash-function id and parameters. For the parameters, simply input '0' to automatically use the best possible parameters.
-    ** Affine = 1
-    ** Affine (h(x) = ax + b, with a and b prime) = 2
-    ** KNUTH = 3
-    ** MURMUR3 = 4
-    ** FNV1 = 5
-    ** Random numbers = 6
+  * Flajollet-Martin = 2
+  * HyperLogLog = 3
+* Hash-function id and parameters. For the parameters, simply input '0' to automatically use the best possible parameters.
+  * Affine = 1
+  * Affine (h(x) = ax + b, with a and b prime) = 2
+  * KNUTH = 3
+  * MURMUR3 = 4
+  * FNV1 = 5
+  * Random numbers = 6
 
 ## How to reproduce the evaluation done for the thesis?
 
@@ -96,7 +97,7 @@ Parameter possible values:
 cd applicationsBin/centrality/
 ./evaluation.sh
 ```
-3. Place the binary file of [GraphAnalyzer](https://github.com/nazandre/GraphAnalyzer) in 'evaluation/bin'.
+3. Place the binary file of [GraphAnalyzer](https://github.com/nazandre/GraphAnalyzer) in `evaluation/bin`.
 4. Extract collected data and plot graphs. Plots are generated in the 'evalulation/plots' folder.
 ```
 cd evaluation
