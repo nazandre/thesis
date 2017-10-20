@@ -7,7 +7,7 @@ Naz, A., Piranda, B., Bourgeois, J., & Goldstein, S. C. (2016, October). A distr
 
 ## How to have a look at C2SR source code?
 
-The C2SR main source code is [here](applicationsSrc/c2sr.cpp).
+The C2SR main source code is [here](applicationsSrc/c2sr/c2sr.cpp).
 
 ## How to run C2SR?
 
