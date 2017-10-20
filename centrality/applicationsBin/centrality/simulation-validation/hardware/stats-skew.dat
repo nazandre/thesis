@@ -1,0 +1,37 @@
+===== cube =====
+	cube/27.txt
+		MinID: 134.8148 12.38807 27 
+		Center: 1330.259 51.54579 27 
+	cube/64.txt
+		MinID: 215.7857 17.94716 28 
+		Center: 2094.857 51.16185 28 
+===== dumbbell =====
+	dumbbell/59.txt
+		MinID: 326.7692 30.85749 26 
+		Center: 1288.154 51.17554 26 
+===== line =====
+	line/3.txt
+		MinID: 28.4 0.5 25 
+		Center: 114.72 0.7371115 25 
+	line/5.txt
+		MinID: 52.6 0.5 25 
+		Center: 233.8 0.8164966 25 
+	line/10.txt
+		MinID: 120.52 1.636052 25 
+		Center: 545 5.322906 25 
+	line/25.txt
+		MinID: 352.48 13.54659 25 
+		Center: 1425.4 19.25703 25 
+	line/50.txt
+		MinID: 623.76 14.37672 25 
+		Center: 2873.4 23.05609 25
+===== square =====
+	square/9.txt
+		MinID: 78.36 18.02748 25 
+		Center: 598.36 44.76595 25 
+	square/25.txt
+		MinID: 153.84 12.23955 25 
+		Center: 1116.76 29.7101 25 
+	square/49.txt
+		MinID: 229.88 19.70051 25 
+		Center: 1683.68 48.35694 25

@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no" ?>
+<world gridSize="20,15,15">
+  <camera target="300,300,307" directionSpherical="0,25,1060" angle="45"/>
+  <spotlight target="300,300,307" directionSpherical="0,25,1060" angle="30"/>
+  <blockList color="0,255,0" blocksize="40,40,41">
+
+    <block position="1,5,5" color="0,255,0"/>
+    <block position="2,5,5" color="0,255,0"/>
+    <block position="3,5,5" color="0,255,0"/>
+    <block position="4,5,5" color="0,255,0"/>
+    <block position="5,5,5" color="0,255,0"/>
+    <block position="6,5,5" color="0,255,0"/>
+    <block position="7,5,5" color="0,255,0"/>
+    <block position="8,5,5" color="0,255,0"/>
+    <block position="9,5,5" color="0,255,0"/>
+    <block position="10,5,5" color="0,255,0"/>
+
+  </blockList>
+</world>

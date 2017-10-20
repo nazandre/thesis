@@ -1,0 +1,105 @@
+set terminal pdf enhanced size 20cm,20cm font ",19"
+
+load 'variants.gpl'
+
+set key inside center bottom vertical Right noreverse enhanced autotitles nobox width 3 opaque
+
+set xlabel "Size (module)" offset 0,0.35
+
+set mxtics 5
+set mytics 2
+#set xtics 200
+set grid xtics ytics
+
+set logscale x
+set xrange [10:]
+set format y "%.2f%%"
+set format x "10^{%.0T}"
+
+
+decr(i) = i - 1
+dir = "data/bb/r/"
+
+##### Centroid:
+set output "accuracy.pdf"
+set ylabel "Average relative centroid accuracy"
+
+w = 0.5
+h = 0.5
+
+set size h,w
+
+set multiplot layout 3,2
+
+set yrange [90:100]
+
+unset key
+
+set title "Best algorithms (accuracy > 90 %)"
+
+set tmargin at screen 0.9
+set bmargin at screen 0.65
+
+plot for [i=1:words(errorFarVariants)] dir.word(errorFarVariants,i).'.errorFar' using 1:(100-$2*100) with linespoints title word(errorNames,i) linestyle word(errorColorLineStyle,i)
+set yrange [50:90]
+
+set title "Worst algorithms (accuracy < 90 %)"  offset -1,0
+
+plot for [i=1:words(errorFarVariants)] dir.word(errorFarVariants,i).'.errorFar' using 1:(100-$2*100) with linespoints title word(errorNames,i) linestyle word(errorColorLineStyle,i)
+
+##### Center:
+
+set tmargin at screen 0.45
+set bmargin at screen 0.2
+
+set ylabel "Average relative center accuracy"
+set yrange [87:100]
+set title "Best algorithms (accuracy > 87%)" offset 0,0
+plot for [i=1:words(errorEccVariants)] dir.word(errorEccVariants,i).'.errorEcc' using 1:(100 - $2*100) with linespoints title word(errorNames,i) linestyle word(errorColorLineStyle,i)
+
+set yrange [50:87]
+set title "Worst algorithms (accuracy < 87 %)" offset -1,0
+set size h,w
+
+plot for [i=1:words(errorEccVariants)] dir.word(errorEccVariants,i).'.errorEcc' using 1:(100 - $2*100) with linespoints title word(errorNames,i) linestyle word(errorColorLineStyle,i)
+
+#set key horizontal width 2 height 1 at screen 0.5,screen 0.1 center maxrows 2
+#example key settings
+
+unset ylabel
+unset xlabel
+unset tics
+unset border
+unset title
+
+set lmargin 0
+set rmargin 1
+
+set key font ",16" horizontal nobox title "Algorithms" 
+set key Left reverse samplen 3 width -2 maxcolumns 20
+set key at screen 0.5,screen 0.135 center top
+
+#We need to set an explicit xrange.  Anything will work really.
+set xrange [1:2]
+set yrange [1:2]
+
+set arrow 1 from screen 0.1,screen 0.56 to screen 0.9, screen 0.56 nohead lc rgb 'black' lw 2
+set label 1 "Relative centroid accuracy" at screen 0.5, screen 0.98 center
+set label 2 "Relative center accuracy" at screen 0.5, screen 0.53 center
+
+plot for [i=1:words(errorEccVariants)]  NaN title word(errorNames,i) linestyle word(errorColorLineStyle,i) with linespoints
+
+#plot for [i=1:words(errorEccVariants)] dir.word(errorEccVariants,i).'.errorEcc' using 1:(100 - $2*100) with yerrorlines title word(errorEccNames,i) linestyle i
+
+unset multiplot
+
+##### backup:
+#set label "relative error = \Bigl|\frac{far(centroid)- far(elected\ node)}{far(centroid)}\Bigr| " at 0,0
+
+#set output "errorFar-E2ACE.pdf"
+#set ylabel "Average relative centroid accuracy"
+#plot for [i=1:words(errorE2ACEVariants)] dir.word(errorE2ACEVariants,i).'.errorFar' using 1:($2*100):($3*100) with yerrorlines title word(errorE2ACENames,i) linestyle i
+
+#set output "errorEcc-E2ACE.pdf"
+#set ylabel "Average relative center accuracy"
+#plot for [i=1:words(errorE2ACEVariants)] dir.word(errorE2ACEVariants,i).'.errorEcc' using 1:($2*100):($3*100) with yerrorlines title word(errorE2ACENames,i) linestyle word(errorColorLineStyle,i)

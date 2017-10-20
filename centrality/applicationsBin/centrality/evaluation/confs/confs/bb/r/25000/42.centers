@@ -1,0 +1,11 @@
+Input: confs/bb/r/25000/42.aj
+Graph: 25000 nodes, 70075 edges
+Compute: 
+Breadth-First Search (BFS) based algorithm...
+Parallel optimization using OpenMP. Max number of threads: 8
+Diameter: 68
+Radius: 35
+Min Farness: 511011
+Extremities: 1260, 1379, 9469, 11983, 12322, 12849, 13798
+Center: 4276, 4696, 6043, 6522, 8018, 9251, 15562, 21236, 22607, 22785
+Centroid: 15562

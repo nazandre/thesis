@@ -1,0 +1,38 @@
+set terminal pdf enhanced
+
+set output "queue.pdf"
+
+load 'variants.gpl'
+
+set logscale y
+set format y "10^{%.0T}"
+set logscale x
+set format x "10^{%.0T}"
+
+set yrange [10:10**3]
+set key at 9750,2.5*10**2
+#set ytics add ("3{/Symbol \264}10^2" 300)
+
+#### Uncontrolled broadcast plot
+if (ucb == 1) {
+   #unset logscale y
+   #unset format y
+   #unset logscale x
+   #unset format x
+   #set mytics 10
+   #set yrange [0:80]
+   set yrange [1:100]
+   set ytics add ("1" 1)
+   set key inside right bottom
+}
+####
+set xlabel "Size (module)"
+set ylabel "Maximum message queue size"
+
+set grid xtics ytics
+
+decr(i) = i - 1
+dir = "data/bb/r/"
+
+plot for [i=1:words(variants)] dir.word(variants,i).'.queue' using 1:2 with linespoint title word(names,i) linestyle i
+#decr(i)

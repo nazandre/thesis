@@ -1,0 +1,49 @@
+
+set termoption dash
+
+set key noenhanced
+
+#set for [i=1:7] linetype i dt i
+#set linetype 3 dt 9
+
+set style line 1 lt 1 lc rgb "red" lw 1 pt 1
+set style line 2 lt 2 lc rgb "blue" lw 1 pt 2
+set style line 3 lt 3 lc rgb "#8B4513" lw 1 pt 3  # brown
+set style line 4 lt 4 lc rgb "dark-green" lw 1 pt 4
+set style line 5 lt 5 lc rgb "orange" lw 1 pt 5
+set style line 6 lt 6 lc rgb "purple" lw 1 pt 6
+set style line 7 lt 7 lc rgb "black" lw 1 pt 12
+set style line 8 lt 7 lc rgb "dark-grey" lw 1 pt 8
+set style line 10 lt 7 lc rgb "cyan" lw 1 pt 10
+set style line 11 lt 10 lc rgb "black" lw 1 pt 11 dt 4
+
+#do for [i=1:words(diams)]
+#name = word(diams, i)
+
+variants = "min-id abc-center-v1 abc-center-v2 e2ace-center-fm-affine-0-2 exact-centroid tbce extremum-center rand2-center parallelRand-center"
+names = "MIN-ID ABC-CENTER-V1 ABC-CENTER-V2 P2CLE BARYCENTER TBCE 10-BFS-SUMSWEEP 10-BFS-RAND-SEQ 10-BFS-RAND-PAR"
+ucb = 0
+
+#ucb = 1
+#variants = "aplha-sync-bfs-sp sp-bfs-ub sp-bfs sp-min-id-ub sp-min-id"
+#names = "ASPNES-BFS-ST-T CHEUNG-BFS-ST CHEUNG-BFS-ST-CB LE\_CHEUNG-BFS-ST LE\_CHEUNG-BFS-ST-CB"
+
+if (ucb == 1) {
+   set style line 5 lt 5 lc rgb "orange" lw 1 pt 12
+}
+
+#e2ace-centroid-hll-knuth-0
+#e2ace-centroid-fm-affine-0-2
+#e2ace-centroid-fm-m-affine-0-2
+
+errorColorLineStyle = "1 2 3 4 10 11 6 7 8"
+
+errorNames = "MIN-ID ABC-CENTER-V1 ABC-CENTER-V2 PC2LE PC2LE-MFC PC2LE-FM-1 TBCE 10-BFS-SUMSWEEP 10-BFS-RAND"
+
+errorFarVariants = "min-id abc-center-v1 abc-center-v2 e2ace-centroid-hll-knuth-0 dee-centroid e2ace-centroid-fm-m-affine-1-4 tbce extremum-centroid rand-centroid"
+errorEccVariants = "min-id abc-center-v1 abc-center-v2 e2ace-center-hll-knuth-0 dee-center e2ace-center-fm-m-affine-1-4 tbce extremum-center rand-center"
+
+#e2ace-center-hll-knuth-0
+#e2ace-center-fm-affine-0-2
+#e2ace-center-fm-m-affine-0-2
+

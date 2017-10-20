@@ -1,0 +1,60 @@
+set terminal pdf enhanced
+
+set output "time.pdf"
+
+load 'variants.gpl'
+
+set grid xtics ytics
+set key at 24,15 vertical Right noreverse noenhanced autotitles nobox width 3
+set key font ",11"
+
+#set xrange [0:55]
+#set yrange [0:21]
+
+set yrange [0:16]
+
+set mytics 5
+set mxtics 5
+
+set xlabel "Diameter (hop)"
+set ylabel "Simulation time (s)"
+
+#### Uncontrolled broadcast plot
+if (ucb == 1) {
+   set yrange [0:1.2]
+   unset ytics
+   set ytics
+   unset key
+   set key inside top left
+}
+####
+
+#usToS(t) = t/1000/1000
+
+set xtics nomirror # remove the tickmarks of the left ayis on the right side	
+set x2tics      # make the right y-axis 'visible'    	       
+set x2tics nomirror
+set x2label "Size (module)"
+#set grid xtics ytics x2tics
+set x2range [0:70]
+
+# approx \273
+# >= 263
+
+#set x2tics ("0" 0, "{/Symbol \263}500" 10, "{/Symbol \263}1000" 20, "{/Symbol \263}5000" 42, "{/Symbol \263}10000" 50, "{/Symbol \263}25000" 66)	
+
+set x2tics ("0" 0, "{/Symbol \273}500" 10, "{/Symbol \273}1000" 22, "{/Symbol \273}5000" 42, "{/Symbol \273}10000" 51, "{/Symbol \273}25000" 67)	
+
+
+dir = "data/bb/r/"
+requiredNumberOfValues = 5
+pointInterval = 3
+
+set datafile missing '?'
+
+#plot for [i=1:words(variants)] dir.word(variants,i).'.time' every pointInterval using 1:($4 >= requiredNumberOfValues ? $2 : '?'):($4 >= requiredNumberOfValues ? $3 : '?') with yerrorlines title word(names,i) linestyle i
+#decr(i)
+
+filter = '< awk ''{ if ($4 >= requiredNumberOfValues) print $1, $2, $3, $4}'' '
+
+plot for [i=1:words(variants)] filter.dir.word(variants,i).'.time' every pointInterval using 1:2:3 with yerrorlines title word(names,i) linestyle i

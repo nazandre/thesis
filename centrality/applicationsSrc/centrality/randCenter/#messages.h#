@@ -1,0 +1,21 @@
+#ifndef RAND_CENTER_MESSAGE
+#define RAND_CENTER_MESSAGE
+
+#include "../utils/def.h"
+#include "../eaMsg.h"
+
+class RandCenterMessageNext;
+typedef std::shared_ptr<RandCenterMessageNext>  RandCenterMessageNextPtr;
+
+class RandCenterMessageNext : public EAMessage {
+ public:
+  longDistance_t value;
+  
+  RandCenterMessageNext(longDistance_t v);
+  virtual ~RandCenterMessageNext();
+
+  
+};
+
+
+#endif

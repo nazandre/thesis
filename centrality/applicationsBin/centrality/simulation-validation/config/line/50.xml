@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no" ?>
+<world gridSize="51,5,5">
+  <camera target="300,300,307" directionSpherical="0,25,1060" angle="45"/>
+  <spotlight target="300,300,307" directionSpherical="0,25,1060" angle="30"/>
+  <blockList color="0,255,0" blocksize="40,40,41">
+    <blocksLine plane="0" line="2" values="11111111111111111111111111111111111111111111111111"/>
+
+  </blockList>
+</world>

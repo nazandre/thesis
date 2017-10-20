@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no" ?>
+<world gridSize="20,15,15">
+    <blockList blockSize="40,40,41">
+        <block position="5,12,5" color="0,255,0" />
+        <block position="3,5,5" color="0,255,0" />
+        <block position="1,12,5" color="0,255,0" />
+        <block position="4,12,5" color="0,255,0" />
+        <block position="1,10,5" color="0,255,0" />
+        <block position="8,8,5" color="0,255,0" />
+        <block position="6,12,5" color="0,255,0" />
+        <block position="2,12,5" color="0,255,0" />
+        <block position="1,5,5" color="255,0,0" />
+        <block position="1,11,5" color="0,255,0" />
+        <block position="2,5,5" color="0,255,0" />
+        <block position="8,9,5" color="0,255,0" />
+        <block position="1,9,5" color="0,255,0" />
+        <block position="6,5,5" color="0,255,0" />
+        <block position="7,12,5" color="0,255,0" />
+        <block position="8,10,5" color="0,255,0" />
+        <block position="5,5,5" color="0,255,0" />
+        <block position="8,11,5" color="0,255,0" />
+        <block position="3,12,5" color="0,255,0" />
+        <block position="7,5,5" color="0,255,0" />
+        <block position="8,7,5" color="0,255,0" />
+        <block position="8,5,5" color="0,255,0" />
+        <block position="1,8,5" color="0,255,0" />
+        <block position="8,6,5" color="0,255,0" />
+        <block position="8,12,5" color="0,255,0" />
+        <block position="4,5,5" color="0,255,0" />
+        <block position="1,7,5" color="0,255,0" />
+        <block position="1,6,5" color="0,255,0" />
+    </blockList>
+</world>

@@ -1,0 +1,38 @@
+set terminal pdf enhanced
+
+set output "messages.pdf"
+
+load 'variants.gpl'
+
+#set key at 200,8*10**6 vertical Right noreverse noenhanced autotitles nobox width 3
+set key inside bottom right vertical Right noreverse noenhanced autotitles nobox width 3
+
+set grid xtics ytics
+
+set logscale y
+set format y "10^{%.0T}"
+
+set logscale x
+set format x "10^{%.0T}"
+
+set yrange [10**2:10**8]
+#set yrange [3*10**2:10**8]
+#set ytics add ("3{/Symbol \264}10^2" 300)
+set mytics 10
+
+#### Uncontrolled broadcast plot
+if (ucb == 1) {
+   unset yrange
+   unset ytics
+   set ytics
+   set mytics 10
+   set key inside top left
+}
+####
+
+set xlabel "Size (module)"
+set ylabel "Total number of messages"
+
+dir = "data/bb/r/"
+plot for [i=1:words(variants)] dir.word(variants,i).'.messages' using 1:2:3 with yerrorlines title word(names,i) linestyle i
+#decr(i)

@@ -1,0 +1,36 @@
+set terminal pdf enhanced
+
+set output "memory.pdf"
+
+load 'variants.gpl'
+
+set key inside right top
+set key font ",11"
+
+set logscale y
+set format y "10^{%.0T}"
+
+set logscale x
+set format x "10^{%.0T}"
+
+set yrange [3*10**2:2*10**5]
+set ytics add ("3{/Symbol \264}10^2" 300)
+
+#### Uncontrolled broadcast plot
+if (ucb == 1) {
+   unset yrange
+   unset ytics
+   set ytics
+   set yrange [10:2*10**3]
+   set key at 10000,70 font ",12"
+}
+####
+
+set grid xtics ytics
+
+set xlabel "Size (module)"
+set ylabel "Maximum memory usage per module\n(algorithm variables + message queues)\n(byte)"
+
+dir = "data/bb/r/"
+
+plot for [i=1:words(variants)] dir.word(variants,i).'.memory' using 1:2 with linespoint title word(names,i) linestyle i

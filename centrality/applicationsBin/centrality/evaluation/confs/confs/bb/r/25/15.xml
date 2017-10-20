@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no" ?>
+<world gridSize="5,5,5">
+  <camera target="100,100,102" directionSpherical="0,25,353" angle="45"/>
+  <spotlight target="100,100,102" directionSpherical="0,25,353" angle="30"/>
+  <blockList color="0,255,0" blocksize="40,40,41">
+    <block position="3,4,3" color="0,255,0"/>
+    <block position="1,1,3" color="0,255,0"/>
+    <block position="2,0,1" color="0,255,0"/>
+    <block position="1,0,3" color="0,255,0"/>
+    <block position="3,2,2" color="0,255,0"/>
+    <block position="2,2,1" color="0,255,0"/>
+    <block position="3,4,2" color="0,255,0"/>
+    <block position="4,4,3" color="0,255,0"/>
+    <block position="2,3,1" color="0,255,0"/>
+    <block position="3,2,1" color="0,255,0"/>
+    <block position="2,2,2" color="0,255,0"/>
+    <block position="0,1,3" color="0,255,0"/>
+    <block position="2,1,1" color="0,255,0"/>
+    <block position="3,1,2" color="0,255,0"/>
+    <block position="1,2,2" color="0,255,0"/>
+    <block position="2,0,3" color="0,255,0"/>
+    <block position="2,3,2" color="0,255,0"/>
+    <block position="2,1,3" color="0,255,0"/>
+    <block position="2,2,3" color="0,255,0"/>
+    <block position="3,3,2" color="0,255,0"/>
+    <block position="1,2,3" color="0,255,0"/>
+    <block position="2,1,2" color="0,255,0"/>
+    <block position="4,4,2" color="0,255,0"/>
+    <block position="3,1,1" color="0,255,0"/>
+    <block position="1,1,2" color="0,255,0"/>
+  </blockList>
+</world>
