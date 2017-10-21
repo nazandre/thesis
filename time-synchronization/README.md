@@ -3,7 +3,7 @@ VisibleSim + the Modular Robot Time Protocol (MRTP)
 
 This folder provides codes and scripts used for the evaluation of our work on network time synchronization.
 
-In this thesis, we proposed the Modular Robot Time Protocol (MRTP). We compare our protocol to existing one.
+In this thesis, we proposed the Modular Robot Time Protocol (MRTP). We compare our protocol to modified version of existing ones:  AD [1], ATS [2], FTSP [3], MLE-TPSN [7] + [4], PulseSync [5,6], TPSN [7], WMTS [8,9]. We modified these protocols to make them fit our target system (see thesis document for more details).
 
 ## Associated publications
 
@@ -80,12 +80,12 @@ Parameter possible values:
 2. Launch the evaluation script.
 ```
 cd applicationsBin/timeSync/
-./evaluation.sh
+./evaluation.sh Ball
 ```
 3. Extract collected data and plot graphs. Plots are generated in the `evaluation/graphs` folder.
 ```
 cd evaluation
-./evaluation.sh
+./evaluation.sh Ball
 ```
 
 ## How to compile VisibleSim and its applications?
@@ -110,3 +110,15 @@ sudo apt-get install sbcl
 sudo apt-get install libmuparser-dev
 ```
 2\. `make`
+
+## References
+
+[1] Li, Q., and Rus, D. (2006). Global clock synchronization in sensor networks. Computers, IEEE Transactions on, 55(2):214–226.
+[2] Schenato, L., and Fiorentin, F. (2011). Average timesynch: A consensus-based protocol for clock synchronization in wireless sensor networks. Automatica, 47(9):1878–1886.
+[3] Maróti, M., Kusy, B., Simon, G., and Lédeczi, Á. (2004). The flooding time synchronization protocol. In Proceedings of the 2nd international conference on Embedded networked sensor systems, pages 39–49. ACM.
+[4] Leng, M., and Wu, Y.-C. (2010). On clock synchronization algorithms for wireless sensor networks under unknown delay. IEEE Transactions on Vehicular Technology, 59(1):182–109
+[5] Lenzen, C., Sommer, P., and Wattenhofer, R. (2009). Optimal clock synchronization in networks. In Proceedings of the 7th ACM Conference on Embedded Networked Sensor Systems, pages 225–238. ACM.
+[6] Lenzen, C., Sommer, P., and Wattenhofer, R. (2015). Pulsesync: An efficient and scalable clock synchronization protocol. IEEE/ACM Transactions on Networking (TON), 23(3):717–727
+[7] Ganeriwal, S., Kumar, R., and Srivastava, M. B. (2003). Timing-sync protocol for sensor networks. In Proceedings of the 1st international conference on Embedded networked sensor systems, pages 138–149. ACM.
+[8] He, J., Cheng, P., Shi, L., Chen, J., and Sun, Y. (2014a). Time synchronization in wsns: A maximum-value-based consensus approach. IEEE Transactions on Automatic Control, 59(3):660–675.
+[9] He, J., Li, H., Chen, J., and Cheng, P. (2014b). Study of consensus-based time synchronization in wireless sensor networks. 53(2):347–357.

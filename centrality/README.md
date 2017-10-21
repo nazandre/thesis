@@ -3,7 +3,7 @@ VisibleSim + Centrality-based leader algorithms
 
 This folder provides codes and scripts used for the evaluation of our work on network centrality.
 
-In this thesis, we proposed a collection of distributed centrality-based leader algorithms, namely the k-BFS SumSweep, ABC-Center and PC2LE (Probabilistic-Counter based Central-Leader Election). We compare our algorithms to existing ones.
+In this thesis, we proposed a collection of distributed centrality-based leader algorithms, namely the k-BFS SumSweep, ABC-Center and PC2LE (Probabilistic-Counter based Central-Leader Election). We compare our algorithms to existing ones: BARYCENTER [1], MIN-ID [2], TBCE [3], [4] and [5]. We adapted some of these algorithms to make them fit our target system (see thesis document for more details).
 
 ## Associated publications
 
@@ -126,3 +126,13 @@ sudo apt-get install sbcl
 sudo apt-get install libmuparser-dev
 ```
 2\. `make`
+
+## References
+
+BARYCENTER
+[1] Mamei, M., Vasirani, M., and Zambonelli, F. (2005). Self-organizing spatial shapes in mobile particles: The tota approach. Organising Systems, pages 138–153. Springer.
+[2] Raynal, M. (2013). Distributed algorithms for message-passing systems, section 4.5, volume 500. Springer.
+[3] Kim, C., and Wu, M. (2013). Leader election on tree-based centrality in ad hoc networks. Telecommunication Systems, 52(2):661–670.
+[4] Garin, F., Varagnolo, D., and Johansson, K. H. (2012). Distributed estimation of diameter, radius and eccentricities in anonymous networks. IFAC Proceedings Volumes, 45(26):13–18.
+[5] Eppstein, D., and Wang, J. (2001). Fast approximation of centrality. In Proceedings of the twelfth annual ACM-SIAM symposium on Discrete algorithms, pages 228–229. Society for Industrial and Applied Mathematics.
+
