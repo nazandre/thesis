@@ -131,8 +131,12 @@ sudo apt-get install libmuparser-dev
 
 BARYCENTER
 [1] Mamei, M., Vasirani, M., and Zambonelli, F. (2005). Self-organizing spatial shapes in mobile particles: The tota approach. Organising Systems, pages 138–153. Springer.
+
 [2] Raynal, M. (2013). Distributed algorithms for message-passing systems, section 4.5, volume 500. Springer.
+
 [3] Kim, C., and Wu, M. (2013). Leader election on tree-based centrality in ad hoc networks. Telecommunication Systems, 52(2):661–670.
+
 [4] Garin, F., Varagnolo, D., and Johansson, K. H. (2012). Distributed estimation of diameter, radius and eccentricities in anonymous networks. IFAC Proceedings Volumes, 45(26):13–18.
+
 [5] Eppstein, D., and Wang, J. (2001). Fast approximation of centrality. In Proceedings of the twelfth annual ACM-SIAM symposium on Discrete algorithms, pages 228–229. Society for Industrial and Applied Mathematics.
 
