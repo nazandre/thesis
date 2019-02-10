@@ -15,8 +15,8 @@ Naz, A., Piranda, B., Goldstein, S. C., & Bourgeois, J. (2016, March). Approxima
 
 The names of algorithms used in the thesis manuscript do not all match the names used in the implementation source code. Here is a mapping (manuscript -> implementation code) if the reader wants to navigate through the code.
 
-* ABC-CenterV1 -> ABC-CenterV1
-* ABC-CenterV2 -> ABC-CenterV2
+* ABC-CenterV1 -> ABC-CenterV1 (originally named ABC-Center)
+* ABC-CenterV2 -> ABC-CenterV2 (note that it is also named ABC-Center-Tree sometimes)
 * BARYCENTER -> Exact
 * MIN-ID -> Simple
 * k-BFS SumSweep -> ExtremumCenter
@@ -30,8 +30,8 @@ The names of algorithms used in the thesis manuscript do not all match the names
 
 All the algorithm source codes are available the [applicationsSrc/centrality](applicationsSrc/centrality) folder. Here are direct links to the main code of the different algorithms:
 
-* [ABC-CenterV1](applicationsSrc/centrality/abcCenterV1/abcCenterV1.cpp)
-* [ABC-CenterV2](applicationsSrc/centrality/abcCenterV2/abcCenterV2.cpp)
+* [ABC-CenterV1 (originally named ABC-Center)](applicationsSrc/centrality/abcCenterV1/abcCenterV1.cpp)
+* [ABC-CenterV2 (sometimes named ABC-Center-Tree also)](applicationsSrc/centrality/abcCenterV2/abcCenterV2.cpp)
 * [BARYCENTER](applicationsSrc/centrality/exact/exact.cpp)
 * [MIN-ID](applicationsSrc/centrality/simple/simple.cpp)
 * [k-BFS SumSweep](applicationsSrc/centrality/extremumCenter/extremumCenter.cpp)
