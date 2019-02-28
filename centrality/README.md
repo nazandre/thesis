@@ -17,7 +17,7 @@ The names of algorithms used in the thesis manuscript do not all match the names
 
 * ABC-CenterV1 -> ABC-CenterV1 (originally named ABC-Center)
 * ABC-CenterV2 -> ABC-CenterV2 (note that it is also named ABC-Center-Tree sometimes)
-* BARYCENTER -> Exact
+* BARYCENTER -> Exact (note that we sometimes we rename it n-BFS in our papers)
 * MIN-ID -> Simple
 * k-BFS SumSweep -> ExtremumCenter
 * k-BFS-SEQ -> RandCenter2
