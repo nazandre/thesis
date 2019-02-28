@@ -17,7 +17,7 @@ The names of algorithms used in the thesis manuscript do not all match the names
 
 * ABC-CenterV1 -> ABC-CenterV1 (originally named ABC-Center)
 * ABC-CenterV2 -> ABC-CenterV2 (note that it is also named ABC-Center-Tree sometimes)
-* BARYCENTER -> Exact (note that we sometimes rename it n-BFS in our papers)
+* BARYCENTER -> Exact (note that we sometimes rename it Exact or n-BFS in our papers)
 * MIN-ID -> Simple
 * k-BFS SumSweep -> ExtremumCenter
 * k-BFS-SEQ -> RandCenter2
@@ -32,7 +32,7 @@ All the algorithm source codes are available the [applicationsSrc/centrality](ap
 
 * [ABC-CenterV1 (originally named ABC-Center)](applicationsSrc/centrality/abcCenterV1/abcCenterV1.cpp)
 * [ABC-CenterV2 (sometimes named ABC-Center-Tree also)](applicationsSrc/centrality/abcCenterV2/abcCenterV2.cpp)
-* [BARYCENTER](applicationsSrc/centrality/exact/exact.cpp)
+* [BARYCENTER (note that we sometimes rename it Exact or n-BFS in our papers)](applicationsSrc/centrality/exact/exact.cpp)
 * [MIN-ID](applicationsSrc/centrality/simple/simple.cpp)
 * [k-BFS SumSweep](applicationsSrc/centrality/extremumCenter/extremumCenter.cpp)
 * [k-BFS-RAND-SEQ](applicationsSrc/centrality/randCenter2/randCenter2.cpp)
